@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
-namespace DotNetCore_MvcMovie
+using MvcMovie.Models;
+namespace MvcMovice
 {
     public class Startup
     {
@@ -22,6 +23,8 @@ namespace DotNetCore_MvcMovie
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddDbContext<MvcMovieContext>(option=>option.UseSqlite("Data Source=MvcMovie.db"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,7 +45,7 @@ namespace DotNetCore_MvcMovie
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Movies}/{action=Index}/{id?}");
             });
         }
     }

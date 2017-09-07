@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using DotNetCore_MvcMovie.Models;
+using MvcMovice.Models;
 
-namespace DotNetCore_MvcMovie.Controllers
+namespace MvcMovice.Controllers
 {
     public class HomeController : Controller
     {
